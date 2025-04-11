@@ -6,13 +6,22 @@ const TL = gsap.timeline({paused: true});
 TL 
 .to(imgs, {scale: 1, duration: 0.4, stagger: 0.1, ease: "back.out(1.7)"});
 
-cercle.addEventListener('mouseenter', () => {
+let lastScrollY = window.scrollY;
 
-    TL.play();
+window.addEventListener('scroll', () => {
+    const cerclePosition = cercle.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    const currentScrollY = window.scrollY;
 
-})
-cercle.addEventListener('mouseout', () => {
+    if (cerclePosition < windowHeight && cerclePosition > 0) {
+        if (currentScrollY > lastScrollY) {
+            // Scroll vers le bas
+            TL.play();
+        } else {
+            // Scroll vers le haut
+            TL.reverse();
+        }
+    }
 
-    TL.reverse();
-
-})
+    lastScrollY = currentScrollY; // Mettre à jour la dernière position de défilement
+});

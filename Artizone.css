@@ -1,0 +1,31 @@
+
+/*Header*/
+.header {
+  background-color: #f8f8f8;
+  display:flex;
+  justify-content: space-between;
+    align-items: center;
+}
+.presentation {
+    background-color: #A8D5BA ;
+    border-radius: 60px;
+    stroke: black;
+    stroke-width: 2px;
+    display: flex;
+    font-size: 200%;
+    text-align: center;
+    
+}
+.nav-list {
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    padding: 5%
+}
+.logo {
+    width: 10%;
+    border-radius: 20%;
+    justify-content: flex-start;
+    stroke: black;
+    stroke-width: 10px;
+}
